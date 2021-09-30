@@ -1,0 +1,58 @@
+
+
+
+<div style="width: 55%">
+        <canvas id="canvas"></canvas>
+    </div>
+
+<script>
+    window.chartColors = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(231,233,237)'
+};
+
+var ctx = document.getElementById("canvas").getContext("2d");
+
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["January", "February"],
+    datasets: [{
+      label: 'Dataset 1',
+      borderColor: window.chartColors.grey,
+      borderWidth: 2,
+      fill: false,
+      data: [2, 10]
+    }]
+  },
+  options: {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Chart.js Drsw Line on Chart'
+    },
+    tooltips: {
+      mode: 'index',
+      intersect: true
+    },
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'vertical',
+        scaleID: 'y-axis-0',
+        value: 5,
+        borderColor: 'rgb(75, 192, 192)',
+        borderWidth: 4,
+        label: {
+          enabled: false,
+          content: 'Test label'
+        }
+      }]
+    }
+  }
+});
